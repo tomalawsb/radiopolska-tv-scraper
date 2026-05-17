@@ -1,0 +1,28 @@
+DVB-T/T2 Point 19.1 - 1705261458
+
+Wprowadzone poprawki z audytu:
+1. index.html
+   - Dodano Content-Security-Policy.
+   - Zmieniono Leaflet z cdnjs na unpkg z SRI integrity i crossorigin.
+   - Zaktualizowano numer wersji w tytule i UI.
+
+2. app.js
+   - Dodano try/catch w loadTxs().
+   - Dodano walidację listy nadajników.
+   - Dodano walidację URL kafelków zasięgu:
+     * wymagane https://
+     * wymagane tokeny {z}, {x}, {y}
+   - Dodano limit importu GeoJSON: 10 MB.
+   - Dodano walidację GeoJSON FeatureCollection.
+   - Dodano limity: 5000 Feature i 200000 punktów geometrii.
+   - Dodano czytelne komunikaty błędów zamiast cichego uszkodzenia aplikacji.
+
+3. service-worker.js
+   - Zmieniono cache name.
+   - Fallback do index.html działa tylko dla dokumentów/nawigacji.
+   - Brakujące assety/API offline zwracają błąd 503 zamiast maskowania index.html.
+
+4. README / JSON
+   - Zaktualizowano numer wersji.
+
+Nie zmieniałem logiki mapy, kompasu ani profilu terenu poza walidacją i obsługą błędów.

@@ -1,0 +1,29 @@
+DVB-T/T2 Point 19.2 - 1705261518
+
+Dodane:
+1. Własny uproszczony silnik obliczania zasięgu RF dla wybranego nadajnika.
+2. Obliczenia na podstawie:
+   - ERP/mocy nadajnika z muxes,
+   - częstotliwości/kanału,
+   - wysokości anteny nadajnika,
+   - wysokości anteny odbiorczej,
+   - profilu wysokości terenu DEM pobieranego z Open-Meteo Elevation API.
+3. Rysowanie obliczonego zasięgu na mapie jako kolorowych sektorów:
+   - zielony: bardzo dobry/dobry,
+   - żółty: średni,
+   - pomarańczowy: słaby,
+   - czerwony: bardzo słaby.
+4. Panel „Obliczony zasięg RF” z informacją o częstotliwości, ERP i przybliżonym zasięgu.
+5. Przycisk „Oblicz i narysuj zasięg wybranego nadajnika” w panelu Dane/API.
+6. Przycisk usuwania obliczonego zasięgu RF.
+7. Oddzielna warstwa RF niezależna od importowanego GeoJSON i zewnętrznych kafelków XYZ.
+
+Ważne ograniczenie:
+To jest pierwszy praktyczny silnik RF, ale nadal uproszczony. Nie zastępuje pełnego Longley-Rice/ITM ani profesjonalnych map UKE/Emitel/RadioPolska. Nie kopiuje cudzych map zasięgów — liczy własną poglądową warstwę.
+
+Zmienione pliki:
+- app.js
+- index.html
+- style.css
+- service-worker.js
+- CHANGELOG_19_2.txt

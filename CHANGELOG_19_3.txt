@@ -1,0 +1,34 @@
+DVB-T/T2 Point 19.3 - 1705261535
+
+Zakres zmian:
+1. Podmieniono ręczną/demo bazę nadajników na oczyszczony eksport RadioPolska.
+2. Przetworzono 587 emisji DVB-T/T2 z pliku emisje_dvbt.json.
+3. Pogrupowano emisje po współrzędnych do 274 obiektów nadawczych.
+4. W data/transmitters.json dodano dla muxów:
+   - kanał i numer kanału,
+   - częstotliwość MHz,
+   - ERP kW,
+   - polaryzację,
+   - pasmo VHF/UHF,
+   - kierunkowość/dookólność,
+   - wysokość anteny n.p.t.,
+   - nazwę/typ anteny,
+   - konfigurację antenową,
+   - operatora,
+   - województwo,
+   - link do strony emisji RadioPolska,
+   - link do pliku ANT.
+5. Oczyszczono dane ze śmieci ze strony: formularzy, stopek, komunikatów cookies i tekstów zgłoszeń.
+6. Dodano konwerter build_transmitters_from_radiopolska.py, żeby można było ponownie wygenerować bazę z nowego eksportu.
+7. Poprawiono panel MUX-ów w aplikacji — pokazuje więcej parametrów emisji i linki ANT/emisji.
+8. Panel Dane/API pokazuje liczbę obiektów i emisji z aktualnej bazy.
+9. Obliczanie RF bierze wysokość anteny z konkretnej emisji/MUX, jeśli jest dostępna.
+
+Czego ta wersja jeszcze NIE robi:
+- nie pobiera automatycznie plików ANT,
+- nie parsuje jeszcze charakterystyki promieniowania z plików ANT,
+- nie ma pełnego Longley-Rice/ITM,
+- nie pobiera gotowych map zasięgów RadioPolska.
+
+Uwaga:
+Dane RadioPolska wymagają zachowania warunków licencji i podania źródła przy publikacji aplikacji.

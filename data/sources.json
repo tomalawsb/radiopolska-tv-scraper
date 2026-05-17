@@ -1,0 +1,47 @@
+{
+  "updated_at": "2026-05-17T11:38:00+02:00",
+  "free_sources": [
+    {
+      "name": "Open-Meteo Elevation API",
+      "type": "elevation",
+      "url": "https://api.open-meteo.com/v1/elevation",
+      "status": "podłączone",
+      "note": "Prawdziwe wysokości terenu z Copernicus DEM GLO-90, bez klucza API dla użytku niekomercyjnego."
+    },
+    {
+      "name": "UKE - pozwolenia NTC H",
+      "type": "transmitters_csv",
+      "url": "https://bip.uke.gov.pl/download/gfx/bip/pl/defaultaktualnosci/140/5/115/pozwolenia_ntc_h_2026-05-07.csv",
+      "status": "do importu",
+      "note": "Oficjalny CSV UKE. Jeżeli przeglądarka zablokuje CORS, pobierz plik i zaimportuj ręcznie w aplikacji."
+    },
+    {
+      "name": "UKE - pozwolenia NTC R",
+      "type": "transmitters_csv",
+      "url": "https://bip.uke.gov.pl/download/gfx/bip/pl/defaultaktualnosci/140/5/115/pozwolenia_ntc_r_2026-05-07.csv",
+      "status": "do importu",
+      "note": "Oficjalny CSV UKE. Wymaga mapowania kolumn po imporcie, jeśli nagłówki różnią się od szablonu aplikacji."
+    },
+    {
+      "name": "RadioPolska Wykaz",
+      "type": "text_data_license",
+      "url": "https://radiopolska.pl/wykaz/",
+      "status": "licencja CC BY 4.0",
+      "note": "Dane tekstowe Wykazu można integrować z oznaczeniem źródła. Publicznego API map pokrycia nie podłączono."
+    }
+  ],
+  "paid_or_licensed_options": [
+    {
+      "name": "Płatny/licencjonowany XYZ tile layer pokrycia",
+      "type": "coverage_tiles",
+      "template": "https://.../{z}/{x}/{y}.png",
+      "status": "opcjonalne"
+    },
+    {
+      "name": "Płatne API elewacji",
+      "type": "elevation_api",
+      "template": "https://.../elevation?lat={lat}&lon={lon}&key=...",
+      "status": "opcjonalne"
+    }
+  ]
+}

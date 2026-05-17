@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f8fc" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com https://nominatim.openstreetmap.org https:; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+  <title>DVB-T/T2 Point 19.2 - 1705261518</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css?v=19.2-1705261518" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <section class="map-stage" aria-label="Mapa DVB-T/T2">
+      <div id="map" class="map"></div>
+
+      <form id="searchForm" class="search-card glass-panel" autocomplete="off">
+        <span class="search-ico">⌕</span>
+        <input id="searchInput" type="search" placeholder="Wpisz adres lub miejscowość" />
+        <button type="submit" aria-label="Szukaj">OK</button>
+      </form>
+
+      <div class="chips-row">
+        <button id="locationChip" class="chip main-chip" type="button">🏠 Mielec / punkt odbioru</button>
+        <span class="chip version-chip">19.2 - 1705261518</span>
+        <span id="onlineChip" class="chip online-chip">Online</span>
+      </div>
+      <span class="version-floating" aria-label="Wersja aplikacji">19.2 - 1705261518</span>
+
+      <button id="locateBtn" class="locate-btn glass-panel" type="button" title="Użyj GPS">⌖</button>
+
+      <button id="compassWidget" class="compass-widget glass-panel" type="button" title="Kompas anteny">
+        <span class="compass-ring"><i id="targetNeedle"></i><i id="phoneNeedle"></i><b>N</b></span>
+        <span class="compass-copy"><strong id="turnText">Kompas</strong><small id="headingText">Telefon: — · Cel: —</small></span>
+      </button>
+
+      <div class="map-actions">
+        <button id="txListBtn" class="map-btn glass-panel" type="button" title="Nadajniki">📡</button>
+        <button id="profileBtn" class="map-btn glass-panel" type="button" title="Profil terenu">▱</button>
+        <button id="layersBtn" class="map-btn glass-panel" type="button" title="Warstwy">▤</button>
+        <button id="filtersBtn" class="map-btn glass-panel" type="button" title="MUX-y">☰</button>
+        <button id="dataBtn" class="map-btn glass-panel" type="button" title="Dane/API">⚙</button>
+      </div>
+
+      <button id="openStationBtn" class="floating-action" type="button" hidden>📡 Nadajnik</button>
+
+      <aside id="appPanel" class="app-panel glass-panel collapsed" aria-label="Panel aplikacji">
+        <div class="panel-handle"></div>
+        <div class="panel-top-row">
+          <div><h2 id="panelTitle">Nadajniki</h2><p id="panelSubtitle">Kliknij marker lub wybierz z listy.</p></div>
+          <button id="closePanelBtn" class="icon-close" type="button">×</button>
+        </div>
+        <div id="panelContent" class="panel-content"></div>
+      </aside>
+
+      <section id="stationCard" class="station-card glass-panel" hidden>
+        <div class="station-head">
+          <div><span>Najlepszy nadajnik</span><strong id="stationName">—</strong></div>
+          <button id="closeStationBtn" class="icon-close" type="button" aria-label="Zamknij">×</button>
+        </div>
+        <div class="station-grid">
+          <div><span>Azymut</span><b id="stationAzimuth">—</b></div>
+          <div><span>Odległość</span><b id="stationDistance">—</b></div>
+          <div><span>Polaryzacja</span><b id="stationPol">—</b></div>
+          <div><span>MUX</span><b id="stationMux">—</b></div>
+        </div>
+        <div class="station-actions">
+          <button id="antennaBtn" class="primary" type="button">Ustaw antenę</button>
+          <button id="stationProfileBtn" type="button">Profil</button>
+          <button id="stationMuxBtn" type="button">MUX-y</button>
+        </div>
+      </section>
+
+      <div id="toast" class="toast" hidden></div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  <script src="app.js?v=19.2-1705261518"></script>
+</body>
+</html>
